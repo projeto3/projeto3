@@ -15,6 +15,15 @@ pipeline {
             }
 
         }
+         stage('Config') {
+
+            steps {
+
+                echo 'Configuring..'
+
+            }
+
+        }
 
         stage('Test') {
 
