@@ -1,7 +1,7 @@
 provider "aws" {
   access_key = "$VAR_ACCESS_KEY"
   secret_key = "$VAR_SECRET_KEY"
-  region     = "us-east-1"
+  region     = "$VAR_REGION"
 }
 
 resource "aws_instance" "example" {
