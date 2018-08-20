@@ -9,7 +9,8 @@ pipeline {
         stage('Build') {
 
             steps {
-                    git clone "https://github.com/projeto3/projeto3/"
+               
+                git url:  'https://github.com/projeto3/projeto3.git'
                 
                 echo 'Building..'
 
