@@ -19,6 +19,7 @@ pipeline {
          stage('Config') {
 
             steps {
+                sh "cd /var/lib/jenkins/workspace/Projeto\ 3/Job\ Dev"
                 sh "terraform init"
                 echo 'Configuring..'
 
