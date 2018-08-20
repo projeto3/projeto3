@@ -19,7 +19,7 @@ pipeline {
          stage('Config') {
 
             steps {
-
+                sh "terraform init"
                 echo 'Configuring..'
 
             }
