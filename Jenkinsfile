@@ -12,7 +12,6 @@ pipeline {
      [$class: 'GitSCM',
       branches: [[name: '*/master']],
       browser: [$class: 'GithubWeb', repoUrl: 'https://github.com/jenkinsci/git-plugin'],
-        )
       }
         
         
