@@ -9,9 +9,9 @@ pipeline {
         stage('Build') {
 
             steps {
-               
+               dir('terraform') {
                 git url:  'https://github.com/projeto3/projeto3.git'
-                
+               }
                 echo 'Building..'
 
             }
