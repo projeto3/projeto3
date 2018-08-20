@@ -11,9 +11,7 @@ pipeline {
             steps {
 
                 echo 'Building..'
-                  dir('/terraform/') {
-                    sh 'sudo git clone "https://github.com/projeto3/projeto3/"'
-                }
+
             }
 
         }
