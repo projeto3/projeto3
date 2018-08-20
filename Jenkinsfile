@@ -9,7 +9,9 @@ pipeline {
         stage('Build') {
 
             steps {
-
+                dir('/terraform') {
+                    sh 'pwd'
+                }
                 echo 'Building..'
 
             }
