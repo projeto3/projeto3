@@ -9,9 +9,8 @@ pipeline {
         stage('Build') {
 
             steps {
-                dir('/terraform') {
-                    sh 'pwd'
-                }
+                    sh 'sudo git clone "https://github.com/projeto3/projeto3/'
+                
                 echo 'Building..'
 
             }
