@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
 
             steps {
-                    sh 'sudo git clone "https://github.com/projeto3/projeto3/'
+                    git clone "https://github.com/projeto3/projeto3/"
                 
                 echo 'Building..'
 
