@@ -11,7 +11,7 @@ pipeline {
             steps {
    
                 git url: 'https://github.com/projeto3/projeto3.git'
-                sh 'cp /var/lib/jenkins/workspace/provider.tf ./jenkiens/'
+                
                 echo 'Building..'
 
             }
@@ -21,6 +21,7 @@ pipeline {
 
             steps {
                 dir('terraform/') {
+                    sh 'cp /var/lib/jenkins/workspace/provider.tf .'
                 sh "terraform init"
                 }
                 echo 'Configuring..'
