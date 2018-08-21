@@ -11,7 +11,7 @@ pipeline {
             steps {
    
                 git url: 'https://github.com/projeto3/projeto3.git'
-                sh 'sudo cp /var/lib/jenkins/workspace/provider.tf ./jenkiens/'
+                sh 'cp /var/lib/jenkins/workspace/provider.tf ./jenkiens/'
                 echo 'Building..'
 
             }
