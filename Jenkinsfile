@@ -11,6 +11,7 @@ pipeline {
             steps {
    
                 git url: 'https://github.com/projeto3/projeto3.git'
+                sh "sudo cp /var/lib/jenkins/workspace/provider.tf /var/lib/jenkins/workspace/Projeto\ 3/Job\ Dev/terraform/"
                 echo 'Building..'
 
             }
