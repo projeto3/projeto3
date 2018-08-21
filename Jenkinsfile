@@ -5,7 +5,19 @@ pipeline {
     agent any
 
     stages {
+         stage('Dependencias') {
 
+            steps {
+   
+            dir('/') {
+                    sh "rm -r *"
+                    }
+                
+                echo 'Destruindo build Anterior..'
+
+            }
+
+        }
         stage('Build') {
 
             steps {
@@ -22,7 +34,7 @@ pipeline {
             steps {
                 dir('terraform/') {
                     sh 'cp /var/lib/jenkins/workspace/provider.tf .'
-                sh "sudo terraform init"
+                sh "terraform init"
                 }
                 echo 'Configuring..'
 
