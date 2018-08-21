@@ -45,7 +45,7 @@ pipeline {
         stage('Criando Instancia') {
                         steps {
                     dir('terraform/') {
-                    sh "terraform apply"
+                    sh "sudo terraform apply"
                     }
                     echo 'Criando Instancia..'
 
