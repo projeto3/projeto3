@@ -25,14 +25,18 @@ pipeline {
                 echo 'Configuring..'
 
             }
-                steps {
+
+
+        }
+        stage('Criando Instancia') {
+                        steps {
                     dir('terraform/') {
                     sh "terraform apply"
                     }
-                    echo 'Configuring..'
+                    echo 'Criando Instancia..'
 
             }
-
+        
         }
 
         stage('Test') {
