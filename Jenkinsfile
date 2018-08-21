@@ -45,7 +45,7 @@ pipeline {
         stage('Criando Instancia') {
                         steps {
                     dir('terraform/') {
-                    sh "sudo terraform apply"
+                    sh "sudo terraform apply -auto-approve"
                     }
                     echo 'Criando Instancia..'
 
