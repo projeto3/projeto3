@@ -11,7 +11,6 @@ pipeline {
             steps {
    
                 git url: 'https://github.com/projeto3/projeto3.git'
-                sh 'pip install -r requirements.txt'
                 echo 'Building..'
 
             }
