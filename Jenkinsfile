@@ -10,7 +10,7 @@ pipeline {
             steps {
    
             dir('/') {
-                    sh "rm -r *"
+                    sh "sudo rm -r *"
                     }
                 
                 echo 'Destruindo build Anterior..'
