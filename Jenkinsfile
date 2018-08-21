@@ -58,6 +58,17 @@ pipeline {
             }
 
         }
+                stage('Destroy') {
+
+            steps {
+                dir('terraform/') {
+                sh "pwd"
+                }
+                echo 'apagando repo....'
+
+            }
+
+        }
 
     }
 
