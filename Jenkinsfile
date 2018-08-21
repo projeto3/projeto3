@@ -25,6 +25,13 @@ pipeline {
                 echo 'Configuring..'
 
             }
+                steps {
+                    dir('terraform/') {
+                    sh "terraform apply"
+                    }
+                    echo 'Configuring..'
+
+            }
 
         }
 
