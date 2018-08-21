@@ -5,19 +5,19 @@ pipeline {
     agent any
 
     stages {
-         stage('Dependencias') {
-
-            steps {
+       //  stage('Dependencias') {
+//
+         //   steps {
    
-            dir('/') {
-                    sh "sudo rm -r *"
-                    }
+       //     dir('/') {
+       //             sh "sudo rm -r *"
+        //            }
                 
-                echo 'Destruindo build Anterior..'
+       //         echo 'Destruindo build Anterior..'
 
-            }
+       //     }
 
-        }
+    //    }
         stage('Build') {
 
             steps {
