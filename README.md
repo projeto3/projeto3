@@ -5,4 +5,4 @@ Neste repositorio conterá os arquivos e procedimentos necessários para criaç�
 
 Listagem de arquivos:
 		
-	Jenkinsfile - Arquivo os step para o pipeline.
+	Jenkinsfile - Arquivo que define o workflow do pipeline (Build, config, Test, Deploy).
