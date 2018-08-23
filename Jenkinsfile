@@ -90,7 +90,7 @@ pipeline {
 
             steps {
                 dir('terraform/') {
-                sh "pwd"
+                sh "sudo terraform destroy"
                 }
                 echo 'apagando repo....'
 
