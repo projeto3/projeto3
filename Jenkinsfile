@@ -79,7 +79,10 @@ pipeline {
             timeout(60) {                // timeout waiting for input after 60 minutes
                     script {
                         // capture the approval details in approvalMap.
-                        approvalMap = input id: 'test', message: 'Hello', ok: 'Proceed?', parameters: [choice(choices: 'Dev\nProd', description: 'Select Ambiente', name: 'Build'), string(defaultValue: '', description: '', name: 'myparam')],  submitterParameter: 'APPROVER'
+                        approvalMap = input id: 'test'
+                        message: 'Hello'
+                        ok: 'Proceed?'
+                        parameters: [choice(choices: 'Dev\nProd', description: 'Select Ambiente', name: 'Build'), string(defaultValue: '', description: '', name: 'myparam')],  submitterParameter: 'APPROVER'
                     }
                 }
 
