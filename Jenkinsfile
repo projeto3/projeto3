@@ -79,7 +79,31 @@ pipeline {
             }
 
         }
-                stage('Destroy') {
+                stage('Confirm Deploy Prod?') {
+
+            steps {
+           // Elvis ira analisar condição     def userInput = false
+                try {
+                        userInput = input(
+                        id: 'Proceed1', message: 'Build Realizada com Sucesso??', parameters: [
+                        [$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']
+                        ])
+                }
+                catch(err) { // timeout reached or input false
+                        def user = err.getCauses()[0].getUser()
+                        if(userInput == true) { // SYSTEM means timeout.
+                              echo "this was successful"
+                        } else {
+
+                            echo "Aborted by: [${user}]"
+                        }
+                    }
+                echo 'Deploy prod?'
+
+            }
+
+        }
+               stage('Destroy') {
 
             steps {
                 dir('terraform/') {
