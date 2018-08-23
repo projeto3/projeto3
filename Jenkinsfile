@@ -76,22 +76,12 @@ pipeline {
 
             steps {
            // Elvis ira analisar condição     def userInput = false
-                try {
-                        userInput = input(
-                        id: 'Proceed1', message: 'Build Realizada com Sucesso??', parameters: [
-                        [$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']
-                        ])
-                }
-                catch(err) { // timeout reached or input false
-                        def user = err.getCauses()[0].getUser()
-                        if(userInput == true) { // SYSTEM means timeout.
-                              echo "this was successful"
-                        } else {
-
-                            echo "Aborted by: [${user}]"
-                        }
+            timeout(60) {                // timeout waiting for input after 60 minutes
+                    script {
+                        // capture the approval details in approvalMap.
+                        approvalMap = input id: 'test', message: 'Hello', ok: 'Proceed?', parameters: [choice(choices: 'apple\npear\norange', description: 'Select a fruit for this build', name: 'FRUIT'), string(defaultValue: '', description: '', name: 'myparam')], submitter: 'user1,user2,group1', submitterParameter: 'APPROVER'
                     }
-                echo 'Deploy prod?'
+                }
 
             }
 
