@@ -91,7 +91,7 @@ pipeline {
 
             steps {
                 dir('terraform/') {
-                sh "sudo terraform destroy -auto-approve"
+                sh "sudo terraform destroy -force"
                 }
                 echo 'apagando repo....'
 
