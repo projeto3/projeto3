@@ -56,6 +56,9 @@ pipeline {
         stage('Test') {
 
             steps {
+                //dir('projeto3/'){
+               // sh"./teste.sh"
+                //}
 
                 echo 'Testing..'
 
