@@ -1,16 +1,16 @@
 #!/bin/bash
-echo "Realizando teste de conectividade"
+echo "Realizando teste de conectividade..."
 ping -qc5 $IP > /dev/null
 
 echo
 
 if [ $? -eq 0 ]; then
-	echo "A instancia $IP esta online"
+	echo "A instancia $URL esta online"
 else 
-	echo "A instancia $IP esta offline"
-  echo "TEST_FAIL"
+	echo "A instancia $URL esta offline"
+  	echo "TEST_FAIL"
   exit
 fi
 
-echo "Realizando teste de requisição de conteudo..."
-curl $IP_APP:$PORTA
+echo "Test HTTP GET /..."
+curl --head $URL_APP
