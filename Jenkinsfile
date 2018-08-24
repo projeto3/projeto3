@@ -80,7 +80,7 @@ pipeline {
                     script {
                         // capture the approval details in approvalMap.
                         approvalMap = input id: 'test', message: 'Hello', ok: 'Proceed?',
-                        parameters: [choice(choices: 'Dev\nProd', description: 'Select Ambiente', name: 'Build'), string(defaultValue: '', description: '', name: 'myparam')],  submitterParameter: 'APPROVER'
+                        parameters: [choice(choices: 'Dev\nProd', description: 'Select Ambiente', name: 'Build'), string(defaultValue: '', description: '', name: 'Descrição')],  submitterParameter: 'APPROVER'
                     }
                 }
 
