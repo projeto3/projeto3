@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Realizando teste de conectividade..."
-#Verifica se a instacia esta UP utilizando o protocolo ICMP
+#Verifica se a instancia AWS está UP
 
 #Falta - Verificar como pega a URL da instancia via terraform e salvar em variavel...
 ping -qc5 $URL > /dev/null
