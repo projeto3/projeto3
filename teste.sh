@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Realizando teste de conectividade..."
-ping -qc5 $IP > /dev/null
+ping -qc5 $URL > /dev/null
 
 echo
 
