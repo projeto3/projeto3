@@ -35,7 +35,7 @@ pipeline {
                 dir('terraform/') {
                     sh 'cp /var/lib/jenkins/workspace/provider.tf .'
                     sh "sudo terraform init"
-                    sh "yum update -y"
+                   
                 }
                 echo 'Configuring..'
 
@@ -46,7 +46,8 @@ pipeline {
         stage('Criando Instancia') {
                         steps {
                     dir('terraform/') {
-                    sh "sudo terraform apply -auto-approve"
+                        sh "sudo terraform apply -auto-approve"
+                         sh "yum update -y"
                     }
                     echo 'Criando Instancia..'
 
