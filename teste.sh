@@ -3,14 +3,14 @@ echo "Realizando teste de conectividade..."
 #Verifica se a instancia AWS está UP
 
 #Falta - Verificar como pega a URL da instancia via terraform e salvar em variavel...
-ping -qc5 $url > /dev/null
+ping -qc5 $URL > /dev/null
 
 echo
 
 if [ $? -eq 0 ]; then
-	echo -e "$url: Status -> \033[0;32mONLINE\033[0m"
+	echo -e "$URL: Status -> \033[0;32mONLINE\033[0m"
 else 
-	echo -e "$url: Status -> \033[0;31mOFFLINE\033[0m"
+	echo -e "$URL: Status -> \033[0;31mOFFLINE\033[0m"
 	echo "O teste de conectividade falhou, verifique sua instancia AWS!"
 	exit
 fi
@@ -18,7 +18,7 @@ fi
 echo "Teste de requisição"
 #Envia uma requisição HTTP GET para o APP
 
-STATUS_CODE=$(curl --head $url | grep -i "HTTP/" | cut -d" " -f2)
+STATUS_CODE=$(curl --head $URL | grep -i "HTTP/" | cut -d" " -f2)
 #clear
 
 #Verifica se a resposta do HTTP GET é igual a 200, caso verdadeiro a requisiço foi um sucesso.
