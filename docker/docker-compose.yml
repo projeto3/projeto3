@@ -1,4 +1,4 @@
-################Projeto Integrador II####################
+################Projeto Integrador III####################
 #   Docker compose para subir ambiente php+apache+mysql #
 #   imagens usadas: ambientum                           #
 #########################################################
@@ -9,7 +9,7 @@ services:
 
   apache-local:
     image: ambientum/php:7.0-apache
-    container_name: apache-local 
+    container_name: web-app 
     volumes:
       - ./www/html:/var/www/app/public
 
@@ -28,7 +28,7 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=projeto_docker
+      - MYSQL_DATABASE=pepiline_devops
       - MYSQL_USER=docker
       - MYSQL_PASSWORD=docker
     user: "1000:50"  
