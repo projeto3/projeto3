@@ -47,7 +47,6 @@ pipeline {
                         steps {
                     dir('terraform/') {
                         sh "sudo terraform apply -auto-approve"
-                        sh "yum update -y"
                     }
                     echo 'Criando Instancia..'
 
