@@ -45,12 +45,18 @@ pipeline {
         }
         stage('Criando Instancia') {
                         steps {
-                    dir('terraform/') {
+                             parallel(
+                                 a: {   dir('terraform/') {
                         sh "sudo terraform apply -auto-approve"
-                    }
-                    echo 'Criando Instancia..'
-
+                                            }
+                                    }
+                                 b:{ dir('terraform/') {
+                       // sh "sudo terraform apply -auto-approve"
+                                            }
+                                   }
+                                     )
             }
+                              
         
         }
 
