@@ -1,4 +1,4 @@
-resource "aws_elb" "Projeto3-elb" {
+resource "aws_elb" "my-elb" {
   name = "my-elb"
   subnets = ["${aws_subnet.main-public-1.id}", "${aws_subnet.main-public-2.id}"]
   security_groups = ["${aws_security_group.elb-securitygroup.id}"]
