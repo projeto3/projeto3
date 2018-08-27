@@ -49,7 +49,7 @@ pipeline {
                                  a: {   dir('terraform/') {
                         sh "sudo terraform apply -auto-approve"
                                             }
-                                    }
+                                    },
                                  b:{ dir('terraform/') {
                        // sh "sudo terraform apply -auto-approve"
                                             }
