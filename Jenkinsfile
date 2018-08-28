@@ -47,7 +47,7 @@ pipeline {
                         steps {
                              parallel(
                                  Criando_VPC: {   dir('terraform/') {
-                        sh "sudo terraform plan -out=vpc.plan -target=module.vpc -auto-approve"
+                        sh "sudo terraform plan -out=vpc.plan -target=module.vpc"
                         sh"terraform apply vpc.plan"
                                             }
                                     },
