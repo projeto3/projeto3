@@ -3,7 +3,7 @@
 pipeline {
 
     agent any
-
+  
     stages {
        //  stage('Dependencias') {
 //
@@ -34,7 +34,8 @@ pipeline {
             steps {
                 dir('terraform/') {
                     sh 'cp /var/lib/jenkins/workspace/provider.tf .'
-                sh "sudo terraform init"
+                    sh "sudo terraform init"
+                   
                 }
                 echo 'Configuring..'
 
@@ -44,18 +45,27 @@ pipeline {
         }
         stage('Criando Instancia') {
                         steps {
-                    dir('terraform/') {
-                    sh "sudo terraform apply -auto-approve"
-                    }
-                    echo 'Criando Instancia..'
-
+                             parallel(
+                                 a: {   dir('terraform/') {
+                        sh "sudo terraform apply -auto-approve"
+                                            }
+                                    },
+                                 b:{ dir('terraform/') {
+                       // sh "sudo terraform apply -auto-approve"
+                                            }
+                                   }
+                                     )
             }
+                              
         
         }
 
         stage('Test') {
 
             steps {
+                //dir('projeto3/'){
+                //sh "./teste.sh"
+               // }
 
                 echo 'Testing..'
 
@@ -72,11 +82,26 @@ pipeline {
             }
 
         }
-                stage('Destroy') {
+                stage('Confirm Deploy Prod?') {
+
+            steps {
+           // Elvis ira analisar condição     def userInput = false
+            timeout(60) {                // timeout waiting for input after 60 minutes
+                    script {
+                        // capture the approval details in approvalMap.
+                        approvalMap = input id: 'test', message: 'Hello', ok: 'Proceed?',
+                        parameters: [choice(choices: 'Dev\nProd', description: 'Select Ambiente', name: 'Build'), string(defaultValue: '', description: '', name: 'Descrição')],  submitterParameter: 'APPROVER'
+                    }
+                }
+
+            }
+
+        }
+               stage('Destroy') {
 
             steps {
                 dir('terraform/') {
-                sh "pwd"
+                sh "sudo terraform destroy -force"
                 }
                 echo 'apagando repo....'
 
