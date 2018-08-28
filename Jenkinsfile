@@ -48,7 +48,7 @@ pipeline {
                              parallel(
                                  Criando_VPC: {   dir('terraform/vpc/') {
                                      sh "sudo terraform init"
-                                     sh "sudo terraform apply"
+                                     sh "sudo terraform apply -auto-approve"
 
                                             }
                                     },
