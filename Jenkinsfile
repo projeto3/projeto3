@@ -46,9 +46,8 @@ pipeline {
         stage('Criando Instancia') {
                         steps {
                              parallel(
-                                 Criando_VPC: {   dir('terraform/') {
-                        sh "sudo terraform plan -out=vpc.plan -var-file=vpc.tf"
-                        sh "sudo terraform apply vpc.plan"
+                                 Criando_VPC: {   dir('terraform/vpc/') {
+                        sh "sudo terraform apply"
                                             }
                                     },
                                  b:{ dir('terraform/') {
