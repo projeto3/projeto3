@@ -46,8 +46,9 @@ pipeline {
         stage('Criando Instancia') {
                         steps {
                              parallel(
-                                 a: {   dir('terraform/') {
-                        sh "sudo terraform apply -auto-approve"
+                                 Criando_VPC: {   dir('terraform/') {
+                        sh "sudo terraform plan -out=vpc.plan -target=module.vpc -auto-approve"
+                        sh"terraform apply vpc.plan"
                                             }
                                     },
                                  b:{ dir('terraform/') {
