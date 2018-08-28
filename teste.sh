@@ -17,14 +17,15 @@ else
 fi
 
 echo "Realizando teste de requisição (HTTP GET)"
+sleep 1
 #Envia uma requisição HTTP GET para o APP
 
 STATUS_CODE=$(curl --write-out %{http_code} --silent --output /dev/null $URL)
-#clear
 
 #Verifica se a resposta do HTTP GET é igual a 200, caso verdadeiro a requisiço foi um sucesso.
 if [ $STATUS_CODE -eq 200 ]; then
 	echo -e "Teste de requisição....\033[0;32mOK\033[0m :: $(date +%F\ %T)"
+	echo "URL da aplicação $URL"
 else
 	echo -e "Teste de requisição... \033[0;31mFAIL\033[0m :: $(date +%F\ %T)"
 	echo "Teste de requisição falhou, verifique o log de deploy da aplicação!"
