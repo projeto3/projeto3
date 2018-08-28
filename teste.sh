@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "Realizando teste de conectividade..."
 #Verifica se a instancia AWS está UP
+URL="http://www.google.com"
 
 #Falta - Verificar como pega a URL da instancia via terraform e salvar em variavel...
 ping -qc5 $URL > /dev/null
