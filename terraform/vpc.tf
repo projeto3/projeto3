@@ -5,9 +5,9 @@ resource "aws_vpc" "main" {
     enable_dns_support = "true"
     enable_dns_hostnames = "true"
     enable_classiclink = "false"
-    tags {
-        Name = "main"
-    }
+ //   tags {
+ //       Name = "main"
+ //   }
 }
 # Subnets
 resource "aws_subnet" "main-public-1" {
